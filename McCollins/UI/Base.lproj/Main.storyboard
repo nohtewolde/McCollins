@@ -104,7 +104,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="F9o-H0-7Tq">
-                                <rect key="frame" x="40" y="144" width="295" height="399"/>
+                                <rect key="frame" x="40" y="144" width="295" height="389.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Firstname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W3O-hl-Tm6">
                                         <rect key="frame" x="0.0" y="0.0" width="295" height="30"/>
@@ -124,35 +124,38 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gender" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UyL-y0-AiH">
-                                        <rect key="frame" x="0.0" y="138" width="295" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Female" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1Z-lt-YfW">
+                                        <rect key="frame" x="0.0" y="138" width="295" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mEG-bU-AC0">
-                                        <rect key="frame" x="0.0" y="184" width="297" height="31"/>
+                                        <rect key="frame" x="0.0" y="174.5" width="297" height="31"/>
+                                        <connections>
+                                            <action selector="swtGender:" destination="fcJ-tS-QV3" eventType="valueChanged" id="oJS-8N-0rD"/>
+                                        </connections>
                                     </switch>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date of Birth" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tdh-0t-2sG">
-                                        <rect key="frame" x="0.0" y="231" width="295" height="30"/>
+                                        <rect key="frame" x="0.0" y="221.5" width="295" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iPd-6Z-BEr">
-                                        <rect key="frame" x="0.0" y="277" width="295" height="30"/>
+                                        <rect key="frame" x="0.0" y="267.5" width="295" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oED-c1-nYh">
-                                        <rect key="frame" x="0.0" y="323" width="295" height="30"/>
+                                        <rect key="frame" x="0.0" y="313.5" width="295" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lS-q7-6bB">
-                                        <rect key="frame" x="0.0" y="369" width="295" height="30"/>
+                                        <rect key="frame" x="0.0" y="359.5" width="295" height="30"/>
                                         <color key="backgroundColor" red="0.21962529219999999" green="1" blue="0.34466816169999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -185,7 +188,7 @@
                         <outlet property="dateOfBirth" destination="tdh-0t-2sG" id="XPJ-Jg-tIo"/>
                         <outlet property="email" destination="oED-c1-nYh" id="R5d-YX-7nX"/>
                         <outlet property="firstName" destination="W3O-hl-Tm6" id="Pdg-r0-Ipl"/>
-                        <outlet property="gender" destination="UyL-y0-AiH" id="gww-nv-5Gj"/>
+                        <outlet property="gender" destination="u1Z-lt-YfW" id="tdu-Sk-WcA"/>
                         <outlet property="lastName" destination="xLb-Cl-zEo" id="Zja-Ww-daI"/>
                         <outlet property="lblMessage" destination="Hde-9S-uTq" id="bgQ-Vo-wRB"/>
                         <outlet property="mobileNumber" destination="mha-PA-f4p" id="aeH-xC-5Y9"/>

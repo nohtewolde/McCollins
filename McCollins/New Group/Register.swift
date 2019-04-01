@@ -10,11 +10,11 @@ import UIKit
 
 class Register: UIViewController {
 
+    @IBOutlet weak var gender: UILabel!
     @IBOutlet weak var lblMessage: UILabel!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var dateOfBirth: UITextField!
-    @IBOutlet weak var gender: UITextField!
     @IBOutlet weak var mobileNumber: UITextField!
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var firstName: UITextField!
@@ -62,13 +62,21 @@ class Register: UIViewController {
         userObj.paswd = password.text
     }
     
+    @IBAction func swtGender(_ sender: UISwitch) {
+        if sender.isOn == true{
+            gender.text = "Female"
+        } else {
+            gender.text = "Male"
+        }
+    }
     func validate() -> Valid{
                 let response = Validation.shared.validate(values: (ValidationType.email, email.text!),
                                                           (ValidationType.password, password.text!),
                                                           (ValidationType.date, dateOfBirth.text!),
                                                           (ValidationType.phoneNo, mobileNumber.text!),
                                                           (ValidationType.stringWithFirstLetterCaps, lastName.text!),
-                                                          (ValidationType.stringWithFirstLetterCaps, firstName.text!))
+                                                          (ValidationType.stringWithFirstLetterCaps, firstName.text!),
+                                                          (ValidationType.alphabeticString, gender.text!))
             return response
     }
     
