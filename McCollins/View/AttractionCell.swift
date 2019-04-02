@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol AttractionCellDelegate {
+    func showOnMap(attraction: Attraction)
+    func showSite(url : String)
+}
+
 class AttractionCell: UITableViewCell {
 
     @IBOutlet weak var attImage: UIImageView!
@@ -20,6 +25,9 @@ class AttractionCell: UITableViewCell {
     @IBOutlet weak var Distance: UILabel!
     @IBOutlet weak var lblTiming: UILabel!
     
+    var att : Attraction?
+    var delegate : AttractionCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         attImage.layer.cornerRadius = attImage.frame.height/2
@@ -27,6 +35,15 @@ class AttractionCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    
+    @IBAction func showMap(_ sender: UIButton) {
+        delegate?.showOnMap(attraction : att!)
+    }
+    
+    @IBAction func showSite(_ sender: UIButton) {
+        delegate?.showSite(url: att!.siteLink!)
     }
     
 }

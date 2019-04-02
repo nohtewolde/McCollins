@@ -27,6 +27,7 @@
 		6D9A293D22512AE400D0A7A4 /* AttractionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9A293C22512AE400D0A7A4 /* AttractionCell.swift */; };
 		6D9A293F2251B66600D0A7A4 /* Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9A293E2251B66600D0A7A4 /* Update.swift */; };
 		6D9A29412252288F00D0A7A4 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9A29402252288F00D0A7A4 /* Settings.swift */; };
+		6D9A29C02253751C00D0A7A4 /* MapAttraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9A29BF2253751C00D0A7A4 /* MapAttraction.swift */; };
 		FB07A8C2D6E9972AEAAC6460 /* Pods_McCollins.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CAE1FB3754FFB854376A4F4 /* Pods_McCollins.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		6D9A293C22512AE400D0A7A4 /* AttractionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionCell.swift; sourceTree = "<group>"; };
 		6D9A293E2251B66600D0A7A4 /* Update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Update.swift; sourceTree = "<group>"; };
 		6D9A29402252288F00D0A7A4 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		6D9A29BF2253751C00D0A7A4 /* MapAttraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAttraction.swift; sourceTree = "<group>"; };
 		8B626C54532309845E9F3FF5 /* Pods_McCollinsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_McCollinsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CAE1FB3754FFB854376A4F4 /* Pods_McCollins.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_McCollins.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AA34939C394651A8D2E17A3 /* Pods-McCollins.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-McCollins.debug.xcconfig"; path = "Target Support Files/Pods-McCollins/Pods-McCollins.debug.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				6D9A293922511FC800D0A7A4 /* AttractionsTVC.swift */,
 				6D9A293E2251B66600D0A7A4 /* Update.swift */,
 				6D9A29402252288F00D0A7A4 /* Settings.swift */,
+				6D9A29BF2253751C00D0A7A4 /* MapAttraction.swift */,
 			);
 			name = Controls;
 			path = "New Group";
@@ -251,6 +254,7 @@
 				6D45F222224DBE2D004DF1D8 /* Frameworks */,
 				6D45F223224DBE2D004DF1D8 /* Resources */,
 				55E39CE93219AE33E04C0E49 /* [CP] Embed Pods Frameworks */,
+				F47F6710F306B016C9BB52B5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -466,6 +470,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F47F6710F306B016C9BB52B5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-McCollins/Pods-McCollins-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-McCollins/Pods-McCollins-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -480,6 +506,7 @@
 				6D9A29322250429D00D0A7A4 /* URLFactory.swift in Sources */,
 				6D9A293A22511FC800D0A7A4 /* AttractionsTVC.swift in Sources */,
 				6D9A293622511B5600D0A7A4 /* Attraction.swift in Sources */,
+				6D9A29C02253751C00D0A7A4 /* MapAttraction.swift in Sources */,
 				6D9A293F2251B66600D0A7A4 /* Update.swift in Sources */,
 				6D9A29342250C8D700D0A7A4 /* User.swift in Sources */,
 				6D9A2924224FE41400D0A7A4 /* Login.swift in Sources */,

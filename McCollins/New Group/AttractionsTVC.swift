@@ -9,12 +9,14 @@
 import UIKit
 import SDWebImage
 import SVProgressHUD
+import CoreLocation
 
-class AttractionsTVC: UITableViewController {
-
-
+class AttractionsTVC: UITableViewController, AttractionCellDelegate, CLLocationManagerDelegate {
     
     @IBOutlet var tblAttractions: UITableView!
+    var userID : String?
+    var locationManager = CLLocationManager()
+    var currentLocation : CLLocation?
     var listAttractions : [Attraction] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -22,9 +24,6 @@ class AttractionsTVC: UITableViewController {
             }
         }
     }
-    
-    var userID : String?
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +43,9 @@ class AttractionsTVC: UITableViewController {
         
         tblAttractions.tableFooterView = UIView()
     }
+    
+    
+    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -55,18 +57,26 @@ class AttractionsTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tblAttractions.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? AttractionCell
         let attObj = listAttractions[indexPath.row]
+        let lat = Double((attObj.latitude)!)
+        let lng = Double((attObj.longitude)!)
+        let locObj = CLLocation(latitude: lat!, longitude: lng!)
+        cell?.att = attObj
+        cell?.delegate = self
         DispatchQueue.main.async {
             cell?.backgroundColor = .clear
             cell?.lblName.text = attObj.title
             cell?.lblTiming.text = attObj.timing
             cell?.lblContact.text = attObj.contact
-            //        cell?.lblDistance.text =
+            if self.currentLocation != nil {
+                let distance = self.currentLocation!.distance(from: locObj)
+                cell?.lblDistance.text = "\(distance)"
+            }
+            
             cell?.lblDescription.text = attObj.desc
             if let url = URL(string: attObj.img!){
                 cell?.attImage.sd_setImage(with: url, placeholderImage: UIImage.init(named: "No image available"))
             }
         }
-        
         return cell!
     }
     
@@ -85,5 +95,27 @@ class AttractionsTVC: UITableViewController {
         vc?.userID = userID
         navigationController?.pushViewController(vc!, animated: true)
     }
+    
+    func showOnMap(attraction : Attraction) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "MapAttraction") as? MapAttraction
+        vc?.attraction = attraction
+        navigationController?.pushViewController(vc!, animated: true)
+        print("Open map with lat and lng")
+    }
+    
+    func showSite(url: String) {
+        let urlsite = URL(string: url)
+        if #available(iOS 10.0, *){
+            UIApplication.shared.open(urlsite!, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(urlsite!)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        currentLocation = locations.last!
+        tblAttractions.reloadData()
+    }
+
     
 }

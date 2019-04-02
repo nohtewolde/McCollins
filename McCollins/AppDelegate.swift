@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import GoogleMaps
+
+let gapikey = "AIzaSyAhvTBHy4juwc2U8F4IFrOmLBqQQtPScco"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        GMSServices.provideAPIKey(gapikey)
         return true
     }
 

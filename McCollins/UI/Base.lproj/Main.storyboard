@@ -332,6 +332,36 @@
             </objects>
             <point key="canvasLocation" x="2968.8000000000002" y="125.4872563718141"/>
         </scene>
+        <!--Map Attraction-->
+        <scene sceneID="uky-XX-Vpg">
+            <objects>
+                <viewController storyboardIdentifier="MapAttraction" id="mrB-0b-Vjq" customClass="MapAttraction" customModule="McCollins" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w8Q-ZT-Tem">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7eU-j4-eb8" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QAh-Ph-L1m" firstAttribute="trailing" secondItem="7eU-j4-eb8" secondAttribute="trailing" id="6ag-1Y-Ufp"/>
+                            <constraint firstItem="QAh-Ph-L1m" firstAttribute="bottom" secondItem="7eU-j4-eb8" secondAttribute="bottom" id="P3Q-j2-i9Q"/>
+                            <constraint firstItem="7eU-j4-eb8" firstAttribute="top" secondItem="QAh-Ph-L1m" secondAttribute="top" id="Rrc-PX-pbr"/>
+                            <constraint firstItem="7eU-j4-eb8" firstAttribute="leading" secondItem="QAh-Ph-L1m" secondAttribute="leading" id="gxJ-1J-DGc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QAh-Ph-L1m"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="7eU-j4-eb8" id="evo-uQ-zc2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ojt-q4-zLD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3953" y="125"/>
+        </scene>
         <!--Splash Page-->
         <scene sceneID="aA6-tw-gC3">
             <objects>
@@ -454,7 +484,7 @@
                                             </constraints>
                                             <state key="normal" image="map"/>
                                             <connections>
-                                                <action selector="btnMap:" destination="F2B-Z7-Lnn" eventType="touchUpInside" id="Icd-Wb-kWK"/>
+                                                <action selector="showMap:" destination="F2B-Z7-Lnn" eventType="touchUpInside" id="NMP-5w-KKk"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1B-lT-3cE">
@@ -465,7 +495,7 @@
                                             </constraints>
                                             <state key="normal" image="www"/>
                                             <connections>
-                                                <action selector="webSite:" destination="F2B-Z7-Lnn" eventType="touchUpInside" id="N7u-2u-0lV"/>
+                                                <action selector="showSite:" destination="F2B-Z7-Lnn" eventType="touchUpInside" id="Nus-4l-QFU"/>
                                             </connections>
                                         </button>
                                     </subviews>
