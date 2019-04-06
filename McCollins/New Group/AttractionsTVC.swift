@@ -29,8 +29,6 @@ class AttractionsTVC: UITableViewController, AttractionCellDelegate, CLLocationM
         super.viewDidLoad()
         self.title = "ATTRACTIONS"
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "blueBackground")!)
-        userID = "noh@email.com"
-//        var errMsg : String?
         SVProgressHUD.show()
         APIHandler.sharedInstance.getAttractions(email: userID!) { (listAttractions, errMsg) in
             SVProgressHUD.dismiss()
